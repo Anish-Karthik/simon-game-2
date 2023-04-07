@@ -13,6 +13,11 @@ $(document).keypress(function () {
 
 // user click
 $(".btn").on("click",function(event){
+    if (!hasStarted) {
+        hasStarted = true;
+        nextSequence();
+        return;
+    }
     var userChosenColour = event.target.id;
     userClickedPattern.push(userChosenColour);
     playSound(userChosenColour);
